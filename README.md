@@ -54,7 +54,6 @@ Proyek ini adalah implementasi aplikasi **CRUD (Create, Read, Update, Delete)** 
 4. **Jalankan Aplikasi**:
    ``` 
    npm run start
-
 ---
 
 ## **API Endpoint**
@@ -72,19 +71,18 @@ Buka dokumentasi Postman online melalui link berikut:
 - PATCH /post/:id (butuh autentikasi)
 - DELETE /post/:id (butuh autentikasi)
 Autentikasi dengan menambahkan header Authorization berikut:
-``` 
-Authorization: Bearer <your jwt token from login>
-
+   ``` 
+   Authorization: Bearer <your jwt token from login>
 ---
 
 ## **Testing**
 Proyek ini dilengkap dengan End-to-End Testing untuk autentikasi. Untuk menjalankan E2E test:
-```
-npm run test:e2e
+```npm run test:e2e```
+
+---
 
 ## **Pattern Project**
-
-Proyek ini menggunakan **Modular Project Structure**, di mana setiap fitur seperti **auth**, **post**, dan **user** disimpan dalam folder terpisah. Setiap folder berisi komponen seperti:
+Proyek ini menggunakan Modular Monolith Structure, di mana setiap fitur seperti **auth**, **post**, dan **user** disimpan dalam folder terpisah. Setiap folder berisi komponen seperti:
 
 - **Controller**: Mengelola request dan response.
 - **Service**: Berisi logika bisnis.
