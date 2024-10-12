@@ -25,12 +25,19 @@ export class PostController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updatePostDto: UpdatePostDto) {
-    return this.postService.update(+id, updatePostDto);
+  @UseGuards(JwtAuthGuard)
+  async update(
+    @Param('id') postId: number,
+    @Body() updatePostDto: UpdatePostDto,
+    @Req() req: any,
+  ) {
+    return this.postService.update(postId, req.user.id, updatePostDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.postService.remove(+id);
+  @UseGuards(JwtAuthGuard)
+  async remove(@Param('id') postId: number, @Req() req: any) {
+    await this.postService.remove(postId, req.user.id);
+    return { message: 'Post deleted successfully' };
   }
 }
