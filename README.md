@@ -81,3 +81,14 @@ Authorization: Bearer <your jwt token from login>
 Proyek ini dilengkap dengan End-to-End Testing untuk autentikasi. Untuk menjalankan E2E test:
 ```
 npm run test:e2e
+
+## **Pattern Project**
+
+Proyek ini menggunakan **Modular Project Structure**, di mana setiap fitur seperti **auth**, **post**, dan **user** disimpan dalam folder terpisah. Setiap folder berisi komponen seperti:
+
+- **Controller**: Mengelola request dan response.
+- **Service**: Berisi logika bisnis.
+- **Module**: Menggabungkan semua komponen yang dibutuhkan untuk fitur tersebut.
+- **Entities**: Representasi tabel database untuk ORM.
+
+Pattern ini dipilih karena memberikan seperation of concerns yang jelas, di mana setiap fitur (seperti auth, post, user) memiliki foldernya sendiri. Hal ini membuat kode lebih mudah dipelihara, dibaca, dan dikelola. Selain itu, struktur modular memungkinkan setiap modul berfungsi secara independen, sehingga kode menjadi lebih terorganisir, terstruktur, dan mudah dikembangkan.
