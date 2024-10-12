@@ -37,13 +37,15 @@ Proyek ini adalah implementasi aplikasi **CRUD (Create, Read, Update, Delete)** 
 ## **Instalasi**
 
 1. **Clone Repository**:
-   ```bash
+   ```
    git clone <repository-url>
    cd nestjs-crud
 2. **Install Dependencies**:
-   ```npm install
+   ```
+      npm install
 3. **Konfigurasi Environment**:
-   ```DB_HOST=localhost
+   ```
+      DB_HOST=localhost
       DB_PORT=3306
       DB_USERNAME=username
       DB_PASSWORD=password
@@ -55,6 +57,8 @@ Proyek ini adalah implementasi aplikasi **CRUD (Create, Read, Update, Delete)** 
 ---
 
 ## **API Endpoint**
+Buka dokumentasi Postman online melalui link berikut:  
+   [Postman Documentation](https://api.postman.com/collections/29126938-782d7713-cda1-4fda-a9e4-c02e3d9be982?access_key=PMAT-01JA036XAM6V4KZFW2XG5KH5TJ)
 - POST /auth/login
 - POST /user/register
 - GET /user
@@ -67,12 +71,12 @@ Proyek ini adalah implementasi aplikasi **CRUD (Create, Read, Update, Delete)** 
 - PATCH /post/:id (butuh autentikasi)
 - DELETE /post/:id (butuh autentikasi)
 Autentikasi dengan menambahkan header Authrization berikut:
-```Authorization: Bearer <your jwt token from login>```
-Atau buka dokumentasi Postman online melalui link berikut:  
-   [Postman Documentation](https://api.postman.com/collections/29126938-782d7713-cda1-4fda-a9e4-c02e3d9be982?access_key=PMAT-01JA036XAM6V4KZFW2XG5KH5TJ)
+```
+Authorization: Bearer <your jwt token from login>
 
 ---
 
 ## **Testing**
 Proyek ini dilengkap dengan End-to-End Testing untuk autentikasi. Untuk menjalankan E2E test:
-```npm run test:e2e```
+```
+npm run test:e2e
