@@ -3,7 +3,9 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './entities/user.entity';
 import { CreateUserDto } from './dto/create-user.dto';
+import { UpdateUserDto } from './dto/update-user.dto';
 import * as bcrypt from 'bcrypt';
+
 
 @Injectable()
 export class UserService {
@@ -69,5 +71,22 @@ export class UserService {
 
     await this.userRepository.delete(userId);
     return 'User deleted successfully';
+  }
+
+  // Update user
+  async updateBio(userId: number, tokenUserId: number, updateUserDto: UpdateUserDto): Promise<User> {
+    if (userId != tokenUserId) {
+      throw new UnauthorizedException('You can only update your own bio');
+    }
+
+    const user = await this.userRepository.findOne({ where: { id: userId } });
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+
+    user.bio = updateUserDto.bio;
+    await this.userRepository.save(user);
+
+    return user;
   }
 }
