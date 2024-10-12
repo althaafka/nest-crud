@@ -37,22 +37,23 @@ Proyek ini adalah implementasi aplikasi **CRUD (Create, Read, Update, Delete)** 
 ## **Instalasi**
 
 1. **Clone Repository**:
-   ```
+   ``` 
    git clone <repository-url>
    cd nestjs-crud
 2. **Install Dependencies**:
-   ```
-      npm install
+   ``` 
+   npm install
 3. **Konfigurasi Environment**:
-   ```
-      DB_HOST=localhost
-      DB_PORT=3306
-      DB_USERNAME=username
-      DB_PASSWORD=password
-      DB_NAME=nestjs_crud
-      JWT_SECRET=yourSecretKey
+   ``` 
+   DB_HOST=localhost
+   DB_PORT=3306
+   DB_USERNAME=username
+   DB_PASSWORD=password
+   DB_NAME=nestjs_crud
+   JWT_SECRET=yourSecretKey
 4. **Jalankan Aplikasi**:
-   ```npm run start
+   ``` 
+   npm run start
 
 ---
 
@@ -70,8 +71,8 @@ Buka dokumentasi Postman online melalui link berikut:
 - GET /post/:id
 - PATCH /post/:id (butuh autentikasi)
 - DELETE /post/:id (butuh autentikasi)
-Autentikasi dengan menambahkan header Authrization berikut:
-```
+Autentikasi dengan menambahkan header Authorization berikut:
+``` 
 Authorization: Bearer <your jwt token from login>
 
 ---
