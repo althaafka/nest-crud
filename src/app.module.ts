@@ -22,6 +22,7 @@ import { PostModule } from './post/post.module';
         database: configService.get('DB_NAME'),
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
         synchronize: true, 
+        dropSchema: true, 
       }),
     }),
     UserModule,
