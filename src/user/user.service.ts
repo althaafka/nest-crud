@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException, ConflictException } from '@nestjs/common';
+import { Injectable, NotFoundException, ConflictException, UnauthorizedException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './entities/user.entity';
@@ -15,6 +15,15 @@ export class UserService {
   // Get all users
   async findAll(): Promise<User[]> {
     return await this.userRepository.find();
+  }
+
+  // Get user by id
+  async findOneById(id: number): Promise<User> {
+    const user = await this.userRepository.findOne({ where: { id } });
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+    return user;
   }
 
   // Get user by username
@@ -47,4 +56,18 @@ export class UserService {
     return newUser;
   }
 
+  // Delete user
+  async delete(userId: number, tokenUserId: number): Promise<string> {
+    if (userId != tokenUserId) {
+      throw new UnauthorizedException('You can only delete your own account');
+    }
+
+    const user = await this.userRepository.findOne({ where: { id: userId } });
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+
+    await this.userRepository.delete(userId);
+    return 'User deleted successfully';
+  }
 }
